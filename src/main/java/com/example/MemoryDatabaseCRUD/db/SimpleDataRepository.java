@@ -49,15 +49,12 @@ abstract public class SimpleDataRepository<T extends Entity, ID extends Long> im
         }else { //없는 경우 데이터 저장
             index++;
             data.setId(index); //다음 번호의 아이디 부여
+            //데이터의 고유아이디 지정--> 제네릭(타입미지정) setId 불가 -->
+            // 클래스 생성시 시 타입을 제한
             dataList.add(data); //데이터 저장
         }
 
-        //데이터의 고유아이디 지정--> 제네릭(타입미지정)이므로 setId 불가 --> 타입을 지정
-        data.setId(index); //T는 Entity-> data.setId(index)지정 가능
-        dataList.add(data);
-
-        index++;
-        return data; //데이터 저장
+        return data;
     }
 
     //read

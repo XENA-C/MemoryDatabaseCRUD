@@ -20,9 +20,8 @@ public class UserService {  //쿼리를  작동시킬 메소드 공간
      // private final UserRepository userRepository;
      // userRepository 선언 후 @RequiredArgsConstructor
     public UserEntity save(UserEntity user){
-      //save하기 위한 repository가 필요
-      return userRepository.save(user);
-      //Controlelr->service->DB와 연결된 Repository를 통해 DB에 데이터를 입출력
+      return userRepository.save(user);//save 위한 repository 필요
+      //Controlelr->service->Repository->DB (Repository 통해 DB에 데이터 입출력)
     }
 
     public List<UserEntity> findAll(){
